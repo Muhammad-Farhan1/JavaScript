@@ -1,4 +1,4 @@
-# JavaScript Practice Projects
+# JavaScript Practice Projects and Projects
 
 This repository contains small JavaScript practice examples covering various DOM manipulations, data types, and basic interactivity.
 
