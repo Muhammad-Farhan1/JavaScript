@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+            font-family: cursive;
+        }
+        .testimonial-container {
+            width: 500px;
+            height: 100px;
+            background: slateblue;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+            min-width: 300px;
+            padding: 70px 20px;
+            margin: 5px;
+            color: white;
+            position: relative;
+        }
+        img {
+            height: 100px;
+            width: 100px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            top: -5px;
+            border-radius: 50%;
+            overflow: hidden;
+            object-fit: cover;
+        }
+        .username {
+            font-size: 13px;
+            font-weight: 100;
+        }
+    </style>
+</head>
+<body>
+    <div class="testimonial-container">
+        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D" alt="User image">
+        <p class="text">Everyone’s on the same page. Many of our people are not very organized naturally, so apple is a godsend!</p>
+        <h4 class="username">Cherise G</h4>
+    </div>
+
+    <script>
+        const testimonials = [
+            {
+                name: "Cherise G",
+                photoUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXNlcnxlbnwwfHwwfHx8MA%3D%3D",
+                text: "Everyone’s on the same page. Many of our people are not very organized naturally, so apple is a godsend!"
+            },
+            {
+                name: "Rosetta Q",
+                photoUrl: "https://media.istockphoto.com/id/1493212300/photo/young-focused-financier-sitting-at-desk-doing-paperwork-working-with-bank-taxes-loans-debits.jpg?s=612x612&w=is&k=20&c=xWIPY2bgy0i_An8jDffKQJBs77-7M0-7_MrrhEkD_OQ=",
+                text: "I have been using apple for over a year now and I love it! I can't imagine life without it. It's so easy to use, and the customer service is great."
+            },
+            {
+                name: "Constantine V",
+                photoUrl: "https://media.istockphoto.com/id/1434780993/photo/young-tourist-using-a-map-on-a-smart-phone.jpg?s=612x612&w=is&k=20&c=NQceVYzwj5tGp6f8tSqSK5_YSEdn7thFjxJhBKLQexY=",
+                text: "I love apple! This is an amazing service and it has saved me and my small business so much time. I plan to use it for a long time to come."
+            }
+        ];
+
+        const imgEl = document.querySelector("img");
+        const textEl = document.querySelector(".text");
+        const usernameEl = document.querySelector(".username");
+        let index = 0;
+
+        function updateTestimonials() {
+            const { name, photoUrl, text } = testimonials[index];
+            imgEl.src = photoUrl;
+            textEl.innerText = text;
+            usernameEl.innerText = name;
+            index++;
+            if (index === testimonials.length) {
+                index = 0;
+            }
+            setTimeout(updateTestimonials, 2000);
+        }
+
+        updateTestimonials();
+    </script>
+</body>
+</html>
